@@ -1,0 +1,20 @@
+body {
+    font-family: Arial;
+    background: #f0c0e0;
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+button {
+    background: #ff66aa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
