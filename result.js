@@ -23,12 +23,12 @@ function showResult() {
     };
 
     let images = {
-        bloom: "images/bloom.png",
-        stella: "images/stella.webp",
-        flora: "images/flora.jpg",
-        tecna: "images/tecna.webp",
-        musa: "images/musa.jpeg",
-        leila: "images/leila.webp"
+        bloom: "images/блум.png",
+        stella: "images/стелла.webp",
+        flora: "images/флора.jpg",
+        tecna: "images/текна.webp",
+        musa: "images/муза.jpeg",
+        leila: "images/лейла.webp"
     };
 
     document.getElementById("result").innerHTML =
