@@ -1,0 +1,42 @@
+const quizData = [
+    { question: "Твой любимый цвет?", options: ["Красный","Зелёный","Жёлтый","Синий", "Фиолетовый", "Розовый"], scores: ["Блум","Флора","Стелла","Лейла","Муза","Текна"] },
+    { question: "Какое направление вы бы выбрали?", options: ["Физмат","Удачно выйти замуж","Химбио","Дизайн одежны", "Музыка", "Хореография"], scores: ["Текна","Блум","Флора","Стелла","Муза","Лейла"] },
+    { question: "Какая строчка из песни вам откликается?", options: ["А мой мальчик едет на девятке, по автостраде, вдоль ночных дорог","Ты как десять часов беспрерывного сна, ты - четверг, ты - 16:00, ты - ромашковыйй чай, покой","Она носит Chanel и Celine, миксует бренды","Мокрая девочка танцует, мокрая девочка сохнет", "Ты аккордами все, я тоже бы так ушел ммм, снова не туда несет", "Вот тебе мой совет: не верь советам, иногда они приносят вред"], scores: ["Блум","Флора","Стелла","Лейла","Муза","Текна"] },
+
+];
+
+function buildQuiz() {
+    const container = document.getElementById('quiz');
+    let html = '';
+    for (let i = 0; i < quizData.length; i++) {
+        html += `<div class="question"><p><strong>${i+1}. ${quizData[i].question}</strong></p>`;
+        for (let j = 0; j < quizData[i].options.length; j++) {
+            html += `<label><input type="radio" name="q${i}" value="${j}"> ${quizData[i].options[j]}</label><br>`;
+        }
+        html += `</div>`;
+    }
+    container.innerHTML = html;
+}
+
+function getResult() {
+    let counts = {"Блум":0, "Стелла":0, "Флора":0, "Лейла":0};
+    for (let i = 0; i < quizData.length; i++) {
+        let selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+            let char = quizData[i].scores[parseInt(selected.value)];
+            counts[char]++;
+        }
+    }
+    let maxChar = "Блум", maxCount = 0;
+    for (let char in counts) {
+        if (counts[char] > maxCount) { maxCount = counts[char]; maxChar = char; }
+    }
+    return maxChar;
+}
+
+document.getElementById('submit').onclick = function() {
+    let result = getResult();
+    document.getElementById('result').innerHTML = `<h2>Ты — ${result}! 🧚‍♀️</h2>`;
+};
+
+buildQuiz();
