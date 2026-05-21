@@ -28,7 +28,7 @@ function buildQuiz() {
 }
 
 function getResult() {
-    let counts = {"Блум":0, "Стелла":0, "Флора":0, "Лейла":0};
+    let counts = {"Блум":0, "Стелла":0, "Флора":0, "Лейла":0, "Муза":0, "Текна":0};
     for (let i = 0; i < quizData.length; i++) {
         let selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (selected) {
@@ -45,7 +45,19 @@ function getResult() {
 
 document.getElementById('submit').onclick = function() {
     let result = getResult();
-    document.getElementById('result').innerHTML = `<h2>Ты — ${result}! 🧚‍♀️</h2>`;
+    
+    let images = {
+        "Блум": "images/блум.png",
+        "Стелла": "images/стелла.webp",
+        "Флора": "images/флора.jpg",
+        "Текна": "images/текна.webp",
+        "Муза": "images/муза.jpeg",
+        "Лейла": "images/лейла.webp"
+    };
+    
+    document.getElementById('result').innerHTML = 
+        `<h2>Ты — ${result}! 🧚‍♀️</h2>
+        <img src="${images[result]}" width="200">`;
 };
 
 buildQuiz();

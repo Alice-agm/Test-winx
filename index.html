@@ -13,43 +13,5 @@
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
-<script>
-function showResult() {
-    let answers = document.querySelectorAll('input[type=radio]:checked');
-    let totalQuestions = document.querySelectorAll('.question').length;
-
-    if (answers.length < totalQuestions) {
-        document.getElementById("result").innerHTML = "Ответь на все вопросы, феечка! ✨";
-        return;
-    }
-
-    let counts = { bloom: 0, stella: 0, flora: 0, tecna: 0, musa: 0, leila: 0 };
-    answers.forEach(a => counts[a.value]++);
-
-    let winner = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
-
-    let results = {
-        bloom: "Блум 🔥",
-        stella: "Стелла 💫",
-        flora: "Флора 🌿",
-        tecna: "Текна ⚡",
-        musa: "Муза 🎵",
-        leila: "Лейла 💧"
-    };
-
-    let images = {
-        bloom: "images/блум.png",
-        stella: "images/стелла.webp",
-        flora: "images/флора.jpg",
-        tecna: "images/текна.webp",
-        musa: "images/муза.jpeg",
-        leila: "images/лейла.webp"
-    };
-
-    document.getElementById("result").innerHTML =
-        "<h2>Ты — " + results[winner] + "</h2>" +
-        "<img src='" + images[winner] + "' width='200'>";
-}
-</script>
 </body>
 </html>
