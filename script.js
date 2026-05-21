@@ -45,7 +45,20 @@ function getResult() {
 
 document.getElementById('submit').onclick = function() {
     let result = getResult();
-    document.getElementById('result').innerHTML = `<h2>Ты — ${result}! 🧚‍♀️</h2>`;
+    
+    let images = {
+        "Блум": "images/6nyM.png",
+        "Стелла": "images/стенла.webp",
+        "Флора": "images/флора.jpg",
+        "Лейла": "images/лейла.webp",
+        "Текна": "images/текна.webp",
+        "Муза": "images/муза.jpeg"
+    };
+    
+    let imageUrl = images[result] || "";
+    
+    document.getElementById('result').innerHTML = `
+        <h2>Ты — ${result}! 🧚‍♀️</h2>
+        <img src="${imageUrl}" alt="${result}" style="max-width: 200px; border-radius: 20px; margin: 10px 0;">
+    `;
 };
-
-buildQuiz();
